@@ -12,7 +12,7 @@ touch tmp/nginx > /dev/null 2>&1
 
 $(echo 'server {
     location / {
-        proxy_pass http://dns.tortillagames.org;
+        proxy_pass http://dns.webmc.xyz;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -28,7 +28,7 @@ containername=nginx
 
 docker run --name $containername -v "$(pwd)/tmp/nginx:/etc/nginx/conf.d/default.conf:ro" -p $PORT:80 -d nginx > /dev/null 2>&1
 
-echo "Started Tortilla Proxy! Press CTRL+C to quit."
+echo "Started WebMC Proxy! Press CTRL+C to quit."
 
 running=true
 
